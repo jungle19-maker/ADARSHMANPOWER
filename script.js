@@ -1,6 +1,6 @@
 /* ===================== script.js =====================
    VINAYAK OVERSEAS SERVICES
-   Interactive Features & Animations
+   Interactive Features & Animations v2.0
    ===================================================== */
 
 'use strict';
@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   /* =====================================================
      1. NAVBAR — Sticky + Scroll Effect
      ===================================================== */
-  const navbar = document.getElementById('navbar');
-  const topBar = document.getElementById('top-bar');
+  const navbar    = document.getElementById('navbar');
+  const backToTopBtn = document.getElementById('back-to-top');
 
   function handleScroll() {
     const scrollY = window.scrollY;
@@ -24,7 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Back-to-top visibility
-    backToTopBtn.classList.toggle('visible', scrollY > 400);
+    if (backToTopBtn) {
+      backToTopBtn.classList.toggle('visible', scrollY > 400);
+    }
 
     // Active nav link based on section in view
     updateActiveNavLink();
@@ -38,38 +40,40 @@ document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.getElementById('hamburger');
   const navMenu   = document.getElementById('nav-menu');
 
-  hamburger.addEventListener('click', () => {
-    const isOpen = navMenu.classList.toggle('open');
-    hamburger.classList.toggle('open', isOpen);
-    hamburger.setAttribute('aria-expanded', isOpen.toString());
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  });
-
-  // Close menu on link click
-  navMenu.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen.toString());
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
-  });
 
-  // Close on outside click
-  document.addEventListener('click', (e) => {
-    if (!navbar.contains(e.target) && navMenu.classList.contains('open')) {
-      navMenu.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    }
-  });
+    // Close menu on link click
+    navMenu.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!navbar.contains(e.target) && navMenu.classList.contains('open')) {
+        navMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
+  }
 
   /* =====================================================
      3. ACTIVE NAV LINK — Intersection Observer
      ===================================================== */
-  const sections   = document.querySelectorAll('section[id]');
-  const navLinks   = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
 
   function updateActiveNavLink() {
     let currentSection = '';
@@ -91,78 +95,33 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================================================
-     4. HERO CAROUSEL / SLIDER
+     4. HERO DOTS / SLIDER (decorative auto-cycle)
      ===================================================== */
-  const slides    = document.querySelectorAll('.hero-slide');
-  const dots      = document.querySelectorAll('.dot');
-  let currentSlide = 0;
-  let slideInterval;
+  const dots = document.querySelectorAll('.dot');
+  let currentDot = 0;
+  let dotInterval;
 
-  function goToSlide(index) {
-    slides[currentSlide].classList.remove('active');
-    dots[currentSlide].classList.remove('active');
-    currentSlide = (index + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
+  function cycleDots() {
+    dots.forEach(d => d.classList.remove('active'));
+    currentDot = (currentDot + 1) % dots.length;
+    dots[currentDot].classList.add('active');
+  }
 
-    // Re-trigger hero content animations
-    const activeContent = slides[currentSlide].querySelector('.hero-content');
-    if (activeContent) {
-      activeContent.querySelectorAll('.hero-tagline, .hero-heading, .hero-sub, .btn-hero').forEach(el => {
-        el.style.animation = 'none';
-        el.offsetHeight; // reflow
-        el.style.animation = '';
+  if (dots.length > 1) {
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        dots.forEach(d => d.classList.remove('active'));
+        currentDot = idx;
+        dot.classList.add('active');
+        clearInterval(dotInterval);
+        dotInterval = setInterval(cycleDots, 5000);
       });
-    }
-  }
-
-  function startAutoSlide() {
-    stopAutoSlide();
-    slideInterval = setInterval(() => {
-      goToSlide(currentSlide + 1);
-    }, 5500);
-  }
-
-  function stopAutoSlide() {
-    if (slideInterval) clearInterval(slideInterval);
-  }
-
-  // Dot click handlers
-  dots.forEach((dot, idx) => {
-    dot.addEventListener('click', () => {
-      goToSlide(idx);
-      startAutoSlide(); // reset timer on manual nav
     });
-  });
-
-  // Touch swipe support for mobile
-  let touchStartX = 0;
-  const heroSection = document.querySelector('.hero');
-
-  if (heroSection) {
-    heroSection.addEventListener('touchstart', e => {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    heroSection.addEventListener('touchend', e => {
-      const delta = touchStartX - e.changedTouches[0].screenX;
-      if (Math.abs(delta) > 50) {
-        goToSlide(currentSlide + (delta > 0 ? 1 : -1));
-        startAutoSlide();
-      }
-    }, { passive: true });
+    dotInterval = setInterval(cycleDots, 5000);
   }
-
-  // Pause on hover
-  if (heroSection) {
-    heroSection.addEventListener('mouseenter', stopAutoSlide);
-    heroSection.addEventListener('mouseleave', startAutoSlide);
-  }
-
-  startAutoSlide();
 
   /* =====================================================
-     5. SCROLL ANIMATIONS (AOS-like, custom)
+     5. SCROLL ANIMATIONS (Custom AOS-like)
      ===================================================== */
   const aosElements = document.querySelectorAll('[data-aos]');
 
@@ -178,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, {
     threshold: 0.12,
-    rootMargin: '0px 0px -60px 0px'
+    rootMargin: '0px 0px -40px 0px'
   });
 
   aosElements.forEach(el => aosObserver.observe(el));
@@ -187,80 +146,117 @@ document.addEventListener('DOMContentLoaded', () => {
      6. SERVICE CARDS — Staggered Animation
      ===================================================== */
   const svcCards = document.querySelectorAll('.service-card');
+  const svcGrid  = document.querySelector('.services-grid');
 
-  const svcObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const cards = entry.target.querySelectorAll('.service-card');
-        cards.forEach((card, i) => {
-          setTimeout(() => {
-            card.style.opacity    = '1';
-            card.style.transform  = 'translateY(0)';
-          }, i * 110);
-        });
-        svcObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  const svcGrid = document.querySelector('.services-grid');
-  if (svcGrid) {
+  if (svcGrid && svcCards.length) {
     svcCards.forEach(card => {
-      card.style.opacity   = '0';
-      card.style.transform = 'translateY(32px)';
+      card.style.opacity    = '0';
+      card.style.transform  = 'translateY(32px)';
       card.style.transition = 'opacity 0.6s ease, transform 0.6s ease, box-shadow 0.35s ease, border-color 0.35s ease';
     });
+
+    const svcObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const cards = entry.target.querySelectorAll('.service-card');
+          cards.forEach((card, i) => {
+            setTimeout(() => {
+              card.style.opacity   = '1';
+              card.style.transform = 'translateY(0)';
+            }, i * 100);
+          });
+          svcObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
     svcObserver.observe(svcGrid);
   }
 
   /* =====================================================
-     7. NUMBER COUNTER ANIMATION (Stats)
+     7. NUMBER COUNTER ANIMATION (Hero Stats)
      ===================================================== */
-  function animateCounter(el, target, suffix) {
-    let start = 0;
+  function animateCounter(el, target) {
+    let start    = 0;
     const duration = 1800;
-    const step = Math.ceil(target / (duration / 16));
+    const step     = Math.ceil(target / (duration / 16));
+    const supEl    = el.querySelector('sup');
+    const suffix   = supEl ? supEl.textContent : '';
+    if (supEl) supEl.remove();
+
     const timer = setInterval(() => {
       start += step;
       if (start >= target) {
         start = target;
         clearInterval(timer);
       }
-      el.textContent = start + suffix;
+      el.textContent = start;
+      if (start >= target) {
+        const s = document.createElement('sup');
+        s.textContent = suffix;
+        el.appendChild(s);
+      }
     }, 16);
   }
 
-  const statsSection = document.querySelector('.about-stats');
-  let statsAnimated = false;
+  // Hero stats counter
+  const heroStats = document.querySelector('.hero-stats');
+  let heroStatsAnimated = false;
 
-  if (statsSection) {
+  if (heroStats) {
     const statsObserver = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting && !statsAnimated) {
-        statsAnimated = true;
-        const statNums = statsSection.querySelectorAll('.stat-num');
-        const targets  = [500, 10, 50];
-        const suffixes = ['+', '+', '+'];
+      if (entries[0].isIntersecting && !heroStatsAnimated) {
+        heroStatsAnimated = true;
+        const statNums  = heroStats.querySelectorAll('.h-stat-num');
+        const targets   = [500, 10, 50];
         statNums.forEach((el, i) => {
-          const sup = el.querySelector('sup');
-          if (sup) sup.remove();
-          animateCounter(el, targets[i], '');
-          if (i < targets.length) {
-            setTimeout(() => {
-              const supEl = document.createElement('sup');
-              supEl.textContent = suffixes[i];
-              el.appendChild(supEl);
-            }, 1850);
-          }
+          if (targets[i] !== undefined) animateCounter(el, targets[i]);
         });
-        statsObserver.unobserve(statsSection);
+        statsObserver.unobserve(heroStats);
       }
     }, { threshold: 0.5 });
-
-    statsObserver.observe(statsSection);
+    statsObserver.observe(heroStats);
   }
 
   /* =====================================================
-     8. CONTACT FORM — Validation & Submit
+     8. FAQ ACCORDION
+     ===================================================== */
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const btn = item.querySelector('.faq-question');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+
+      // Close all
+      faqItems.forEach(fi => {
+        fi.classList.remove('active');
+        const q = fi.querySelector('.faq-question');
+        if (q) {
+          q.setAttribute('aria-expanded', 'false');
+          const icon = q.querySelector('i');
+          if (icon) {
+            icon.className = 'fas fa-chevron-down';
+          }
+        }
+      });
+
+      // Open clicked if it was closed
+      if (!isActive) {
+        item.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+        const icon = btn.querySelector('i');
+        if (icon) {
+          icon.className = 'fas fa-chevron-up';
+        }
+      }
+    });
+  });
+
+  /* =====================================================
+     9. CONTACT FORM — Validation & Submit
      ===================================================== */
   const contactForm = document.getElementById('contact-form');
   const toast       = document.getElementById('toast');
@@ -301,18 +297,15 @@ document.addEventListener('DOMContentLoaded', () => {
       let valid = true;
 
       if (!name) {
-        setFieldError('contact-name', true);
-        valid = false;
+        setFieldError('contact-name', true);  valid = false;
       } else { setFieldError('contact-name', false); }
 
       if (!email || !validateEmail(email)) {
-        setFieldError('contact-email', true);
-        valid = false;
+        setFieldError('contact-email', true); valid = false;
       } else { setFieldError('contact-email', false); }
 
       if (!message) {
-        setFieldError('contact-message', true);
-        valid = false;
+        setFieldError('contact-message', true); valid = false;
       } else { setFieldError('contact-message', false); }
 
       if (!valid) {
@@ -324,7 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const btn = contactForm.querySelector('.btn-send');
       const originalContent = btn.innerHTML;
       btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Sending...</span>';
-      btn.disabled = true;
+      btn.disabled  = true;
 
       setTimeout(() => {
         btn.innerHTML = originalContent;
@@ -337,17 +330,30 @@ document.addEventListener('DOMContentLoaded', () => {
     // Clear error on input
     ['contact-name', 'contact-email', 'contact-message'].forEach(id => {
       const el = document.getElementById(id);
-      if (el) {
-        el.addEventListener('input', () => setFieldError(id, false));
+      if (el) el.addEventListener('input', () => setFieldError(id, false));
+    });
+  }
+
+  /* =====================================================
+     10. NEWSLETTER FORM
+     ===================================================== */
+  const newsletterForm = document.getElementById('newsletter-form');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const emailInput = document.getElementById('newsletter-email');
+      if (emailInput && validateEmail(emailInput.value.trim())) {
+        showToast('Thank you for subscribing to our newsletter!');
+        newsletterForm.reset();
+      } else {
+        showToast('Please enter a valid email address.', 'error');
       }
     });
   }
 
   /* =====================================================
-     9. BACK TO TOP
+     11. BACK TO TOP
      ===================================================== */
-  const backToTopBtn = document.getElementById('back-to-top');
-
   if (backToTopBtn) {
     backToTopBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -355,7 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================================================
-     10. SMOOTH SCROLL for anchor links
+     12. SMOOTH SCROLL for anchor links
      ===================================================== */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -370,31 +376,74 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* =====================================================
-     11. EXPERT CARDS — Reveal on Scroll
+     13. WHY FEATURES — Hover Cycle
      ===================================================== */
-  const expertCards = document.querySelectorAll('.expert-card');
-
-  const cardObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, idx) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.style.opacity   = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }, idx * 120);
-        cardObserver.unobserve(entry.target);
-      }
+  const whyFeatures = document.querySelectorAll('.why-feature');
+  whyFeatures.forEach(feat => {
+    feat.addEventListener('mouseenter', () => {
+      whyFeatures.forEach(f => f.classList.remove('active'));
+      feat.classList.add('active');
     });
-  }, { threshold: 0.15 });
-
-  expertCards.forEach(card => {
-    card.style.opacity   = '0';
-    card.style.transform = 'translateY(28px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease, box-shadow 0.35s ease';
-    cardObserver.observe(card);
   });
 
   /* =====================================================
-     12. INIT
+     14. PRICING CARDS — stagger reveal
+     ===================================================== */
+  const pricingCards = document.querySelectorAll('.pricing-card');
+  if (pricingCards.length) {
+    pricingCards.forEach(card => {
+      card.style.opacity    = '0';
+      card.style.transform  = 'translateY(36px)';
+      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease, box-shadow 0.35s ease';
+    });
+
+    const pricingGrid = document.querySelector('.pricing-grid');
+    if (pricingGrid) {
+      const pricingObs = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+          pricingCards.forEach((card, i) => {
+            setTimeout(() => {
+              card.style.opacity   = '1';
+              card.style.transform = card.classList.contains('featured') ? 'translateY(-8px)' : 'translateY(0)';
+            }, i * 120);
+          });
+          pricingObs.unobserve(pricingGrid);
+        }
+      }, { threshold: 0.15 });
+      pricingObs.observe(pricingGrid);
+    }
+  }
+
+  /* =====================================================
+     15. HOW IT WORKS STEPS — stagger reveal
+     ===================================================== */
+  const hiwSteps = document.querySelectorAll('.hiw-step');
+  if (hiwSteps.length) {
+    hiwSteps.forEach(step => {
+      step.style.opacity    = '0';
+      step.style.transform  = 'translateX(20px)';
+      step.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
+
+    const hiwCol = document.querySelector('.hiw-steps-col');
+    if (hiwCol) {
+      const hiwObs = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+          hiwSteps.forEach((step, i) => {
+            setTimeout(() => {
+              step.style.opacity   = '1';
+              step.style.transform = 'translateX(0)';
+            }, i * 150);
+          });
+          hiwObs.unobserve(hiwCol);
+        }
+      }, { threshold: 0.2 });
+      hiwObs.observe(hiwCol);
+    }
+  }
+
+  /* =====================================================
+     16. INIT
      ===================================================== */
   handleScroll(); // Run once on page load
   updateActiveNavLink();
