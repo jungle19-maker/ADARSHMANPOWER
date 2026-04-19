@@ -1,0 +1,121 @@
+const steps = [
+  {
+    num: "01",
+    title: "Requirement Analysis",
+    desc: "We conduct a thorough analysis of your workforce needs — skill sets, industry standards, volume, and timeline.",
+  },
+  {
+    num: "02",
+    title: "Candidate Sourcing",
+    desc: "Tapping our database of 50,000+ pre-screened professionals and running targeted recruitment drives across India.",
+  },
+  {
+    num: "03",
+    title: "Screening & Interviews",
+    desc: "Multi-stage evaluation: written tests, trade tests, panel interviews, and medical fitness assessments.",
+  },
+  {
+    num: "04",
+    title: "Documentation",
+    desc: "Complete documentation handling — offer letters, contracts, attestation, emigration clearance, and compliance checks.",
+  },
+  {
+    num: "05",
+    title: "Visa Processing",
+    desc: "End-to-end visa application, embassy coordination, work permit processing, and travel arrangements.",
+  },
+  {
+    num: "06",
+    title: "Deployment",
+    desc: "Pre-departure orientation, flight coordination, airport assistance, and smooth onboarding at the destination.",
+  },
+];
+
+export default function Process() {
+  return (
+    <section id="process" className="py-24 bg-[#F8FAFC] overflow-hidden">
+      <div className="container mx-auto px-6 max-w-6xl">
+
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <span className="h-[2px] w-8 bg-[#F5B301] " />
+            <span className="text-xs font-bold text-[#0B1F3A]/50 uppercase tracking-[0.22em]">
+              How It Works
+            </span>
+            <span className="h-[2px] w-8 bg-[#F5B301] " />
+          </div>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-[#0B1F3A] leading-tight mb-4">
+            Our 6-Step Recruitment Process
+          </h2>
+          <p className="text-[#4B5563] text-lg leading-relaxed">
+            A proven, structured timeline approach to deliver the right talent at the right time —
+            every single time.
+          </p>
+        </div>
+
+        {/* Vertical Alternating Timeline Grid */}
+        <div className="relative w-full py-4">
+          
+          {/* Center Vertical Line */}
+          <div className="absolute left-[28px] md:left-1/2 top-0 bottom-0 w-[2px] bg-[#E5E7EB] md:-translate-x-[1px]" />
+
+          <div className="flex flex-col gap-12 md:gap-16">
+            {steps.map((step, idx) => {
+              const isEven = idx % 2 === 0;
+              // On desktop:
+              // isEven (0, 2, 4) -> Card appears on the Left side, text aligned Right
+              // odd (1, 3, 5)    -> Card appears on the Right side, text aligned Left
+              const boxMargin = isEven ? "md:mr-auto" : "md:ml-auto";
+              const textAlign = isEven ? "md:text-right" : "md:text-left";
+
+              return (
+                <div key={idx} className="relative w-full">
+                  
+                  {/* Floating Number Box (Timeline Marker) */}
+                  <div className="absolute left-[28px] md:left-1/2 top-4 md:top-1/2 transform -translate-x-1/2 md:-translate-y-1/2 z-10 w-12 h-12 bg-[#0B1F3A] border-2 border-[#F5B301] flex items-center justify-center shadow-lg transition-transform hover:scale-110 duration-300">
+                    <span className="text-[#F5B301] font-black text-lg">{step.num}</span>
+                  </div>
+
+                  {/* Content Container */}
+                  <div className={`w-full md:w-[45%] pl-20 md:pl-0 ${boxMargin}`}>
+                    <div className="bg-white border border-[#E5E7EB] p-8 hover:bg-[#0B1F3A] group transition-all duration-400 shadow-sm hover:shadow-2xl hover:-translate-y-1">
+                      
+                      {/* Step Number Backdrop (Visible on Hover) */}
+                      <div className="text-6xl font-extrabold text-[#F8FAFC] group-hover:text-white/5 absolute top-2 right-4 leading-none select-none transition-colors duration-300 pointer-events-none">
+                        {step.num}
+                      </div>
+
+                      <h4 className={`text-xl font-bold text-[#0B1F3A] group-hover:text-[#F5B301] mb-3 transition-colors duration-300 text-left ${textAlign}`}>
+                        {step.title}
+                      </h4>
+                      <p className={`text-[#4B5563] text-sm leading-relaxed group-hover:text-white/80 transition-colors duration-300 text-left ${textAlign}`}>
+                        {step.desc}
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="mt-20 text-center">
+          <p className="text-[#4B5563] mb-6">
+            Ready to start your recruitment journey? Contact us today.
+          </p>
+          <a href="#contact" className="btn-primary inline-flex uppercase">
+            Start Hiring Now
+            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  );
+}
