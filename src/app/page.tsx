@@ -12,7 +12,7 @@ export default function Home() {
     <main className="min-h-screen bg-[#F8FAFC] flex flex-col">
       <Navbar />
       <Hero />
-      <About />
+      <About showCertificate={false} />
       <Services />
       <WhyUs />
       <Process />

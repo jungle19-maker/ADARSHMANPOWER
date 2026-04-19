@@ -10,8 +10,7 @@ const navLinks = [
   { name: "About Us", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Process", href: "/process" },
-  { name: "Industries", href: "/industries" },
-  { name: "Careers", href: "/careers" },
+  { name: "Why Choose Us", href: "/why-choose-us" },
   { name: "Contact Info", href: "/contact-info" },
 ];
 
@@ -29,28 +28,28 @@ export default function Navbar() {
     <header className="fixed top-0 w-full z-50">
 
       {/* ── Top Info Bar ── */}
-      <div className="bg-black text-white text-[13px] md:text-sm px-4 md:px-8 py-2.5 flex flex-col md:flex-row items-center justify-between gap-2 md:gap-0 font-medium">
-        <div className="flex items-center gap-6">
+      <div className="bg-black text-white text-[12px] md:text-sm px-4 md:px-8 py-2 md:py-2.5 flex flex-col md:flex-row items-center justify-between gap-1.5 md:gap-0 font-medium">
+        <div className="flex flex-wrap justify-center items-center gap-3 md:gap-6 text-center">
           <a
             href="mailto:vinayakoverseas90@gmail.com"
-            className="flex items-center gap-2 text-white hover:text-[#F5B301] transition-colors"
+            className="flex items-center gap-1.5 text-white/90 hover:text-[#F5B301] transition-colors"
           >
-            <Mail className="w-4 h-4 text-[#F5B301]" />
+            <Mail className="w-3.5 h-3.5 text-[#F5B301]" />
             vinayakoverseas90@gmail.com
           </a>
           <a
             href="tel:+918894412776"
-            className="flex items-center gap-2 text-white hover:text-[#F5B301] transition-colors"
+            className="flex items-center gap-1.5 text-white/90 hover:text-[#F5B301] transition-colors"
           >
-            <Phone className="w-4 h-4 text-[#F5B301]" />
+            <Phone className="w-3.5 h-3.5 text-[#F5B301]" />
             +91-8894412776
           </a>
         </div>
-        <div className="flex flex-col items-center md:items-end md:text-right gap-0.5">
-          <span className="font-bold tracking-wide text-white md:text-[15px]">
+        <div className="flex flex-col items-center md:items-end md:text-right gap-0 text-center">
+          <span className="font-bold tracking-wide text-white text-[13px] md:text-[15px]">
             VINAYAK OVERSEAS SERVICES
           </span>
-          <span className="text-white/90 text-[11px] font-semibold tracking-wide">
+          <span className="text-white/80 text-[10px] md:text-[11px] font-semibold tracking-wide">
             RA License No: B-3393/HP/PER/100/5/11399/2026
           </span>
         </div>
@@ -74,18 +73,18 @@ export default function Navbar() {
                  priority
                />
              </a>
-             <div className="w-[1px] h-10 bg-gray-200 hidden sm:block mx-1" />
-             <div className="hidden sm:flex items-center flex-shrink-0 gap-2">
+             <div className="w-[1px] h-8 sm:h-10 bg-gray-200 mx-1" />
+             <div className="flex items-center flex-shrink-0 gap-1 sm:gap-2">
                <img
                  src="/images/mea_logo.png"
                  alt="Ministry of External Affairs"
-                 className="object-contain h-10 w-auto"
+                 className="object-contain h-8 sm:h-10 w-auto flex-shrink-0"
                />
                <div className="flex flex-col">
-                 <span className="text-[#1e3a8a] font-black text-[14px] leading-tight">
+                 <span className="text-[#1e3a8a] font-black text-[9px] sm:text-[14px] leading-tight break-words max-w-[100px] sm:max-w-none">
                    Ministry of External Affairs
                  </span>
-                 <span className="text-[#4B5563] text-[12px] leading-tight">
+                 <span className="text-[#4B5563] text-[8px] sm:text-[12px] leading-tight">
                    Government of India
                  </span>
                </div>
@@ -135,11 +134,7 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
-            <div className="pt-4 border-t border-[#E5E7EB]">
-              <div className="w-full flex justify-center">
-                 <LanguageSwitcher />
-              </div>
-            </div>
+
           </div>
         )}
       </nav>

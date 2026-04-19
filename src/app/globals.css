@@ -152,7 +152,7 @@
     width: 2rem;
     height: 2px;
     background: #F5B301;
-    border-radius: 9999px;
+
     flex-shrink: 0;
   }
 
@@ -174,7 +174,7 @@
     color: #23352b;
     font-weight: 700;
     font-size: 0.875rem;
-    border-radius: 9999px;
+
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     letter-spacing: 0.02em;
   }
@@ -196,7 +196,7 @@
     color: #ffffff;
     font-weight: 700;
     font-size: 0.875rem;
-    border-radius: 9999px;
+
     transition: background 0.2s, transform 0.2s, border-color 0.2s;
     letter-spacing: 0.02em;
   }
@@ -218,7 +218,7 @@
     color: #23352b;
     font-weight: 700;
     font-size: 0.875rem;
-    border-radius: 9999px;
+
     transition: background 0.2s, color 0.2s;
     letter-spacing: 0.02em;
   }
@@ -238,7 +238,7 @@
     color: #F5B301;
     font-weight: 700;
     font-size: 0.875rem;
-    border-radius: 9999px;
+
     transition: background 0.2s, color 0.2s;
     letter-spacing: 0.02em;
   }
@@ -268,7 +268,7 @@
     width: 2rem;
     height: 2px;
     background: #F5B301;
-    border-radius: 9999px;
+
     flex-shrink: 0;
   }
 
@@ -300,25 +300,28 @@
 .VIpgJd-Zvi9od-aZ2wEe-wOHMyf,
 .VIpgJd-Zvi9od-aZ2wEe-wOHMyf-ti6hGc,
 .goog-te-banner-frame,
-.skiptranslate > iframe.goog-te-banner-frame {
+.skiptranslate>iframe.goog-te-banner-frame {
   display: none !important;
   visibility: hidden !important;
 }
 
-html, body {
+html,
+body {
   top: 0px !important;
   margin-top: 0px !important;
   position: static !important;
 }
 
 .goog-tooltip {
-    display: none !important;
+  display: none !important;
 }
+
 .goog-tooltip:hover {
-    display: none !important;
+  display: none !important;
 }
+
 .goog-text-highlight {
-    background-color: transparent !important;
-    border: none !important; 
-    box-shadow: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }

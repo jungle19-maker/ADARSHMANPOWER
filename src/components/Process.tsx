@@ -33,69 +33,84 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="process" className="py-24 bg-white overflow-hidden">
-      <div className="container mx-auto px-6 max-w-7xl">
+    <section id="process" className="py-24 bg-[#F8FAFC] overflow-hidden">
+      <div className="container mx-auto px-6 max-w-6xl">
 
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-20">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="h-[2px] w-8 bg-[#F5B301] rounded-full" />
-            <span className="text-xs font-bold text-[#23352b]/50 uppercase tracking-[0.22em]">
+            <span className="h-[2px] w-8 bg-[#F5B301] " />
+            <span className="text-xs font-bold text-[#0B1F3A]/50 uppercase tracking-[0.22em]">
               How It Works
             </span>
-            <span className="h-[2px] w-8 bg-[#F5B301] rounded-full" />
+            <span className="h-[2px] w-8 bg-[#F5B301] " />
           </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-[#23352b] leading-tight mb-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-[#0B1F3A] leading-tight mb-4">
             Our 6-Step Recruitment Process
           </h2>
-          <p className="text-[#4B5563] text-base leading-relaxed">
-            A proven, structured approach to deliver the right talent at the right time —
+          <p className="text-[#4B5563] text-lg leading-relaxed">
+            A proven, structured timeline approach to deliver the right talent at the right time —
             every single time.
           </p>
         </div>
 
-        {/* Timeline Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {steps.map((step, idx) => (
-            <div
-              key={idx}
-              className="group relative p-8 rounded-2xl bg-[#F8FAFC] border border-[#E5E7EB] hover:bg-[#23352b] hover:border-[#23352b] transition-all duration-400 hover:-translate-y-1 hover:shadow-2xl"
-            >
-              {/* Step number */}
-              <div className="text-6xl font-extrabold text-[#23352b]/8 group-hover:text-white/5 absolute top-4 right-6 leading-none select-none transition-colors duration-300">
-                {step.num}
-              </div>
+        {/* Vertical Alternating Timeline Grid */}
+        <div className="relative w-full py-4">
+          
+          {/* Center Vertical Line */}
+          <div className="absolute left-[28px] md:left-1/2 top-0 bottom-0 w-[2px] bg-[#E5E7EB] md:-translate-x-[1px]" />
 
-              {/* Gold dot + number badge */}
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-full bg-[#F5B301] flex items-center justify-center text-[#23352b] font-extrabold text-sm shadow-md">
-                  {step.num}
+          <div className="flex flex-col gap-12 md:gap-16">
+            {steps.map((step, idx) => {
+              const isEven = idx % 2 === 0;
+              // On desktop:
+              // isEven (0, 2, 4) -> Card appears on the Left side, text aligned Right
+              // odd (1, 3, 5)    -> Card appears on the Right side, text aligned Left
+              const boxMargin = isEven ? "md:mr-auto" : "md:ml-auto";
+              const textAlign = isEven ? "md:text-right" : "md:text-left";
+
+              return (
+                <div key={idx} className="relative w-full">
+                  
+                  {/* Floating Number Box (Timeline Marker) */}
+                  <div className="absolute left-[28px] md:left-1/2 top-4 md:top-1/2 transform -translate-x-1/2 md:-translate-y-1/2 z-10 w-12 h-12 bg-[#0B1F3A] border-2 border-[#F5B301] flex items-center justify-center shadow-lg transition-transform hover:scale-110 duration-300">
+                    <span className="text-[#F5B301] font-black text-lg">{step.num}</span>
+                  </div>
+
+                  {/* Content Container */}
+                  <div className={`w-full md:w-[45%] pl-20 md:pl-0 ${boxMargin}`}>
+                    <div className="bg-white border border-[#E5E7EB] p-8 hover:bg-[#0B1F3A] group transition-all duration-400 shadow-sm hover:shadow-2xl hover:-translate-y-1">
+                      
+                      {/* Step Number Backdrop (Visible on Hover) */}
+                      <div className="text-6xl font-extrabold text-[#F8FAFC] group-hover:text-white/5 absolute top-2 right-4 leading-none select-none transition-colors duration-300 pointer-events-none">
+                        {step.num}
+                      </div>
+
+                      <h4 className={`text-xl font-bold text-[#0B1F3A] group-hover:text-[#F5B301] mb-3 transition-colors duration-300 text-left ${textAlign}`}>
+                        {step.title}
+                      </h4>
+                      <p className={`text-[#4B5563] text-sm leading-relaxed group-hover:text-white/80 transition-colors duration-300 text-left ${textAlign}`}>
+                        {step.desc}
+                      </p>
+                    </div>
+                  </div>
+
                 </div>
-                {/* Connector line */}
-                {idx < steps.length - 1 && (
-                  <div className="hidden lg:block h-px flex-1 bg-[#E5E7EB] group-hover:bg-white/15 transition-colors" />
-                )}
-              </div>
+              );
+            })}
+          </div>
 
-              <h4 className="text-lg font-bold text-[#23352b] group-hover:text-white mb-2 transition-colors duration-300">
-                {step.title}
-              </h4>
-              <p className="text-sm leading-relaxed text-[#4B5563] group-hover:text-white/70 transition-colors duration-300">
-                {step.desc}
-              </p>
-            </div>
-          ))}
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-14 text-center">
+        <div className="mt-20 text-center">
           <p className="text-[#4B5563] mb-6">
             Ready to start your recruitment journey? Contact us today.
           </p>
-          <a href="#contact" className="btn-primary inline-flex">
+          <a href="#contact" className="btn-primary inline-flex uppercase">
             Start Hiring Now
-            <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
             </svg>
           </a>
         </div>
