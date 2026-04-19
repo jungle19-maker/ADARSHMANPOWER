@@ -1,6 +1,6 @@
 /* ===================== script.js =====================
    VINAYAK OVERSEAS SERVICES
-   Interactive Features & Animations v2.0
+   Interactive Features & Animations
    ===================================================== */
 
 'use strict';
@@ -9,13 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
   /* =====================================================
      1. NAVBAR — Sticky + Scroll Effect
      ===================================================== */
-  const navbar    = document.getElementById('navbar');
+  const navbar       = document.getElementById('navbar');
   const backToTopBtn = document.getElementById('back-to-top');
 
   function handleScroll() {
     const scrollY = window.scrollY;
 
-    // Navbar glass effect on scroll
+    // Navbar shadow on scroll
     if (scrollY > 60) {
       navbar.classList.add('scrolled');
     } else {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
       backToTopBtn.classList.toggle('visible', scrollY > 400);
     }
 
-    // Active nav link based on section in view
+    // Active nav link based on scroll position
     updateActiveNavLink();
   }
 
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
-    // Close menu on link click
+    // Close menu on nav link click
     navMenu.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('open');
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================================================
-     3. ACTIVE NAV LINK — Intersection Observer
+     3. ACTIVE NAV LINK — Scroll spy
      ===================================================== */
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -86,47 +86,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     navLinks.forEach(link => {
       link.classList.remove('active');
-      const href = link.getAttribute('href');
-      if (href === `#${currentSection}`) {
+      if (link.getAttribute('href') === `#${currentSection}`) {
         link.classList.add('active');
       }
     });
   }
 
   /* =====================================================
-     4. HERO DOTS / SLIDER (jQuery)
-     ===================================================== */
-  const $dots = $('.dot');
-  const $slides = $('.hero-slide');
-  let currentDot = 0;
-  let dotInterval;
-
-  function cycleDots(index) {
-    if (index !== undefined) {
-      currentDot = index;
-    } else {
-      currentDot = (currentDot + 1) % $slides.length;
-    }
-    
-    $dots.removeClass('active');
-    $dots.eq(currentDot).addClass('active');
-    
-    $slides.fadeOut(600);
-    $slides.eq(currentDot).fadeIn(600);
-  }
-
-  if ($dots.length > 1 && $slides.length > 1) {
-    $dots.on('click', function() {
-      const idx = $(this).data('slide');
-      clearInterval(dotInterval);
-      cycleDots(idx);
-      dotInterval = setInterval(cycleDots, 5000);
-    });
-    dotInterval = setInterval(cycleDots, 5000);
-  }
-
-  /* =====================================================
-     5. SCROLL ANIMATIONS (Custom AOS-like)
+     4. SCROLL ANIMATIONS (Custom AOS-like)
      ===================================================== */
   const aosElements = document.querySelectorAll('[data-aos]');
 
@@ -148,45 +115,14 @@ document.addEventListener('DOMContentLoaded', () => {
   aosElements.forEach(el => aosObserver.observe(el));
 
   /* =====================================================
-     6. SERVICE CARDS — Staggered Animation
-     ===================================================== */
-  const svcCards = document.querySelectorAll('.service-card');
-  const svcGrid  = document.querySelector('.services-grid');
-
-  if (svcGrid && svcCards.length) {
-    svcCards.forEach(card => {
-      card.style.opacity    = '0';
-      card.style.transform  = 'translateY(32px)';
-      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease, box-shadow 0.35s ease, border-color 0.35s ease';
-    });
-
-    const svcObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const cards = entry.target.querySelectorAll('.service-card');
-          cards.forEach((card, i) => {
-            setTimeout(() => {
-              card.style.opacity   = '1';
-              card.style.transform = 'translateY(0)';
-            }, i * 100);
-          });
-          svcObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    svcObserver.observe(svcGrid);
-  }
-
-  /* =====================================================
-     7. NUMBER COUNTER ANIMATION (Hero Stats)
+     5. NUMBER COUNTER ANIMATION (Hero Stats Bar)
      ===================================================== */
   function animateCounter(el, target) {
-    let start    = 0;
-    const duration = 1800;
-    const step     = Math.ceil(target / (duration / 16));
-    const supEl    = el.querySelector('sup');
-    const suffix   = supEl ? supEl.textContent : '';
+    let start       = 0;
+    const duration  = 1800;
+    const step      = Math.ceil(target / (duration / 16));
+    const supEl     = el.querySelector('sup');
+    const suffix    = supEl ? supEl.textContent : '';
     if (supEl) supEl.remove();
 
     const timer = setInterval(() => {
@@ -204,27 +140,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 16);
   }
 
-  // Hero stats counter
-  const heroStats = document.querySelector('.hero-stats');
+  const heroStatsBar = document.querySelector('.hero-stats-bar');
   let heroStatsAnimated = false;
 
-  if (heroStats) {
+  if (heroStatsBar) {
     const statsObserver = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting && !heroStatsAnimated) {
         heroStatsAnimated = true;
-        const statNums  = heroStats.querySelectorAll('.h-stat-num');
-        const targets   = [500, 10, 50];
+        const statNums = heroStatsBar.querySelectorAll('.h-stat-num');
+        const targets  = [500, 10, 50, 30];
         statNums.forEach((el, i) => {
           if (targets[i] !== undefined) animateCounter(el, targets[i]);
         });
-        statsObserver.unobserve(heroStats);
+        statsObserver.unobserve(heroStatsBar);
       }
     }, { threshold: 0.5 });
-    statsObserver.observe(heroStats);
+    statsObserver.observe(heroStatsBar);
   }
 
   /* =====================================================
-     8. FAQ ACCORDION
+     6. FAQ ACCORDION
      ===================================================== */
   const faqItems = document.querySelectorAll('.faq-item');
 
@@ -242,9 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (q) {
           q.setAttribute('aria-expanded', 'false');
           const icon = q.querySelector('i');
-          if (icon) {
-            icon.className = 'fas fa-chevron-down';
-          }
+          if (icon) icon.className = 'fas fa-chevron-down';
         }
       });
 
@@ -253,95 +186,27 @@ document.addEventListener('DOMContentLoaded', () => {
         item.classList.add('active');
         btn.setAttribute('aria-expanded', 'true');
         const icon = btn.querySelector('i');
-        if (icon) {
-          icon.className = 'fas fa-chevron-up';
-        }
+        if (icon) icon.className = 'fas fa-chevron-up';
       }
     });
   });
 
   /* =====================================================
-     9. CONTACT FORM — Validation & Submit
+     7. NEWSLETTER FORM
      ===================================================== */
-  const contactForm = document.getElementById('contact-form');
-  const toast       = document.getElementById('toast');
+  const toast = document.getElementById('toast');
 
   function showToast(message, type = 'success') {
     if (!toast) return;
     toast.querySelector('span').textContent = message;
     toast.className = `toast show ${type}`;
-    setTimeout(() => {
-      toast.classList.remove('show');
-    }, 4500);
+    setTimeout(() => toast.classList.remove('show'), 4500);
   }
 
   function validateEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
-  function setFieldError(fieldId, show) {
-    const field = document.getElementById(fieldId);
-    if (!field) return;
-    if (show) {
-      field.style.borderColor = 'var(--danger)';
-      field.style.boxShadow   = '0 0 0 3px rgba(229,62,62,.12)';
-    } else {
-      field.style.borderColor = '';
-      field.style.boxShadow   = '';
-    }
-  }
-
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const name    = document.getElementById('contact-name').value.trim();
-      const email   = document.getElementById('contact-email').value.trim();
-      const message = document.getElementById('contact-message').value.trim();
-
-      let valid = true;
-
-      if (!name) {
-        setFieldError('contact-name', true);  valid = false;
-      } else { setFieldError('contact-name', false); }
-
-      if (!email || !validateEmail(email)) {
-        setFieldError('contact-email', true); valid = false;
-      } else { setFieldError('contact-email', false); }
-
-      if (!message) {
-        setFieldError('contact-message', true); valid = false;
-      } else { setFieldError('contact-message', false); }
-
-      if (!valid) {
-        showToast('Please fill in all required fields correctly.', 'error');
-        return;
-      }
-
-      // Simulate send
-      const btn = contactForm.querySelector('.btn-send');
-      const originalContent = btn.innerHTML;
-      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Sending...</span>';
-      btn.disabled  = true;
-
-      setTimeout(() => {
-        btn.innerHTML = originalContent;
-        btn.disabled  = false;
-        contactForm.reset();
-        showToast('Message sent successfully! We\'ll get back to you soon.');
-      }, 1800);
-    });
-
-    // Clear error on input
-    ['contact-name', 'contact-email', 'contact-message'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.addEventListener('input', () => setFieldError(id, false));
-    });
-  }
-
-  /* =====================================================
-     10. NEWSLETTER FORM
-     ===================================================== */
   const newsletterForm = document.getElementById('newsletter-form');
   if (newsletterForm) {
     newsletterForm.addEventListener('submit', (e) => {
@@ -357,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================================================
-     11. BACK TO TOP
+     8. BACK TO TOP
      ===================================================== */
   if (backToTopBtn) {
     backToTopBtn.addEventListener('click', () => {
@@ -366,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================================================
-     12. SMOOTH SCROLL for anchor links
+     9. SMOOTH SCROLL for anchor links
      ===================================================== */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -381,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* =====================================================
-     13. WHY FEATURES — Hover Cycle
+     10. WHY FEATURES — Hover active highlight
      ===================================================== */
   const whyFeatures = document.querySelectorAll('.why-feature');
   whyFeatures.forEach(feat => {
@@ -392,41 +257,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* =====================================================
-     14. PRICING CARDS — stagger reveal
-     ===================================================== */
-  const pricingCards = document.querySelectorAll('.pricing-card');
-  if (pricingCards.length) {
-    pricingCards.forEach(card => {
-      card.style.opacity    = '0';
-      card.style.transform  = 'translateY(36px)';
-      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease, box-shadow 0.35s ease';
-    });
-
-    const pricingGrid = document.querySelector('.pricing-grid');
-    if (pricingGrid) {
-      const pricingObs = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting) {
-          pricingCards.forEach((card, i) => {
-            setTimeout(() => {
-              card.style.opacity   = '1';
-              card.style.transform = card.classList.contains('featured') ? 'translateY(-8px)' : 'translateY(0)';
-            }, i * 120);
-          });
-          pricingObs.unobserve(pricingGrid);
-        }
-      }, { threshold: 0.15 });
-      pricingObs.observe(pricingGrid);
-    }
-  }
-
-  /* =====================================================
-     15. HOW IT WORKS STEPS — stagger reveal
+     11. HOW IT WORKS STEPS — stagger reveal
      ===================================================== */
   const hiwSteps = document.querySelectorAll('.hiw-step');
   if (hiwSteps.length) {
     hiwSteps.forEach(step => {
-      step.style.opacity    = '0';
-      step.style.transform  = 'translateX(20px)';
+      step.style.opacity   = '0';
+      step.style.transform = 'translateX(20px)';
       step.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     });
 
@@ -448,8 +285,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================================================
-     16. INIT
+     12. INIT
      ===================================================== */
-  handleScroll(); // Run once on page load
+  handleScroll();       // Run once on page load
   updateActiveNavLink();
 });
