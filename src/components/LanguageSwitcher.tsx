@@ -19,7 +19,6 @@ export default function LanguageSwitcher() {
           new window.google.translate.TranslateElement(
             { 
               pageLanguage: "en", 
-              layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
             },
             "google_translate_element"
           );

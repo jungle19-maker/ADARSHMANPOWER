@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X, Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -17,6 +18,7 @@ const navLinks = [
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 5);
@@ -93,15 +95,22 @@ export default function Navbar() {
 
           {/* Center: Desktop Links */}
           <div className="hidden xl:flex items-center justify-center flex-1 gap-6 px-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-[15px] font-semibold text-[#374151] hover:text-[#0B1F3A] transition-colors whitespace-nowrap"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={`text-[15px] font-bold transition-colors whitespace-nowrap ${
+                    isActive 
+                      ? "text-[#F5B301] border-b-2 border-[#F5B301] pb-1" 
+                      : "text-[#374151] hover:text-[#0B1F3A] pb-1 border-b-2 border-transparent"
+                  }`}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
           </div>
 
           {/* Right: Language Dropdown */}
@@ -124,16 +133,23 @@ export default function Navbar() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="xl:hidden bg-white border-t border-[#E5E7EB] px-6 py-5 flex flex-col gap-4 shadow-lg">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-base font-semibold text-[#374151] hover:text-[#F5B301] transition-colors py-1"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={`text-base font-bold py-1 transition-colors ${
+                    isActive 
+                      ? "text-[#F5B301] pl-2 border-l-4 border-[#F5B301]" 
+                      : "text-[#374151] hover:text-[#0B1F3A] pl-2 border-l-4 border-transparent"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
 
           </div>
         )}

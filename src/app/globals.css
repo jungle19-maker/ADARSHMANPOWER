@@ -325,3 +325,35 @@ body {
   border: none !important;
   box-shadow: none !important;
 }
+
+/* ── Premium Customization for Native Google Translate Dropdown ── */
+.goog-te-gadget {
+  font-size: 0px !important;
+  color: transparent !important;
+}
+
+.goog-te-gadget .goog-logo-link, 
+.goog-te-gadget img {
+  display: none !important;
+}
+
+select.goog-te-combo {
+  background-color: #F8FAFC !important;
+  border: 1px solid #E5E7EB !important;
+  color: #0B1F3A !important;
+  padding: 6px 30px 6px 12px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  outline: none !important;
+  cursor: pointer !important;
+  appearance: none !important;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230B1F3A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 8px center !important;
+  background-size: 16px !important;
+  transition: all 0.2s ease !important;
+}
+
+select.goog-te-combo:hover {
+  border-color: #F5B301 !important;
+}
