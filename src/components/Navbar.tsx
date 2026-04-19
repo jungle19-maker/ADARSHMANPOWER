@@ -33,16 +33,16 @@ export default function Navbar() {
         <div className="flex items-center gap-6">
           <a
             href="mailto:vinayakoverseas90@gmail.com"
-            className="flex items-center gap-2 hover:text-[#F5B301] transition-colors"
+            className="flex items-center gap-2 text-white hover:text-[#F5B301] transition-colors"
           >
-            <Mail className="w-4 h-4 text-white" />
+            <Mail className="w-4 h-4 text-[#F5B301]" />
             vinayakoverseas90@gmail.com
           </a>
           <a
             href="tel:+918894412776"
-            className="flex items-center gap-2 hover:text-[#F5B301] transition-colors"
+            className="flex items-center gap-2 text-white hover:text-[#F5B301] transition-colors"
           >
-            <Phone className="w-4 h-4 text-white" />
+            <Phone className="w-4 h-4 text-[#F5B301]" />
             +91-8894412776
           </a>
         </div>
