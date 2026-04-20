@@ -3,10 +3,10 @@ import { CheckCircle2, Award, Globe, Factory } from "lucide-react";
 import AnimatedHeading from "./AnimatedHeading";
 
 const points = [
-  "Validated & verified candidates with thorough background checks",
-  "Transparent, compliant processes aligned with Govt. of India",
-  "End-to-end visa, attestation & emigration clearance support",
-  "Post-deployment onboarding and relationship management",
+  "Rigorous vetting process guaranteeing highly qualified, background-verified professionals.",
+  "100% adherence to global legal standards and Government of India compliance.",
+  "Comprehensive mobilization support including visa processing, attestation, and emigration.",
+  "Dedicated post-deployment support to ensure seamless integration and retention.",
 ];
 
 const statBadges = [
@@ -63,18 +63,15 @@ export default function About({ showCertificate = true }: { showCertificate?: bo
               </span>
             </div>
 
-            <AnimatedHeading 
-              text="A Trusted International [Recruitment Partner.]"
+            <AnimatedHeading
+              text="Your Strategic Partner in [Global Talent Acquisition.]"
               className="text-[#24342b] text-4xl lg:text-5xl font-bold leading-tight"
             />
 
             <p className="text-[#4B5563] leading-relaxed text-lg">
-              VCS Website is a trusted international recruitment partner, delivering
-              skilled manpower solutions across industries including construction, oil & gas,
-              healthcare, hospitality, and manufacturing. With a strong compliance framework
-              aligned with Government of India regulations, we ensure{" "}
-              <strong className="text-[#24342b]">ethical, transparent, and efficient hiring</strong>{" "}
-              for employers worldwide.
+              New Adarsh Manpower Consultant is a premier global manpower agency specializing in the deployment of top-tier talent across high-growth sectors, including construction, oil & gas, healthcare, hospitality, and IT. Backed by rigorous compliance standards and an expansive candidate network, we ensure {" "}
+              <strong className="text-[#24342b]">seamless, ethical, and efficient hiring</strong>{" "}
+              for multinational organizations worldwide.
             </p>
 
             <ul className="space-y-3">
@@ -113,17 +110,17 @@ export default function About({ showCertificate = true }: { showCertificate?: bo
                   Official <span className="text-[#F5B301]">License</span>
                 </h3>
                 <p className="text-[#4B5563] text-sm leading-relaxed mb-6">
-                  VCS Website is an officially certified recruiting agent by the Ministry of External Affairs, Government of India.
+                  New Adarsh Manpower Consultant is an officially certified and licensed recruiting agent by the Ministry of External Affairs, Government of India, guaranteeing a secure and reliable recruitment process.
                 </p>
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#F1F5F9] border border-[#E5E7EB]">
                   <Award className="w-5 h-5 text-[#F5B301]" />
-                  <span className="text-sm font-bold text-[#24342b]">B-3393/HP/PER/100/5/11399/2026</span>
+                  <span className="text-sm font-bold text-[#24342b]">B-3395/UP/COM/100/5/11401/2026</span>
                 </div>
               </div>
               <div className="md:w-2/3">
                 <div className=" overflow-hidden border border-[#E5E7EB] shadow-xl relative w-full h-[400px] md:h-[500px]">
                   <Image
-                    src="/images/license_certificate.png"
+                    src="/images/certificate.png"
                     alt="MEA License Certificate"
                     fill
                     className="object-contain bg-white hover:scale-105 transition-transform duration-500"

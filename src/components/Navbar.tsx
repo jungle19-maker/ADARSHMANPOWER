@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X, Mail, Phone } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const navLinks = [
@@ -33,26 +34,26 @@ export default function Navbar() {
       <div className="bg-black text-white text-[12px] md:text-sm px-4 md:px-8 py-2 md:py-2.5 flex flex-col md:flex-row items-center justify-between gap-1.5 md:gap-0 font-medium">
         <div className="flex flex-wrap justify-center items-center gap-3 md:gap-6 text-center">
           <a
-            href="mailto:vinayakoverseas90@gmail.com"
+            href="mailto:newadarshmanpowerconsultant@gmail.com"
             className="flex items-center gap-1.5 text-white/90 hover:text-[#F5B301] transition-colors"
           >
             <Mail className="w-3.5 h-3.5 text-[#F5B301]" />
-            vinayakoverseas90@gmail.com
+            newadarshmanpowerconsultant@gmail.com
           </a>
           <a
-            href="tel:+918894412776"
+            href="tel:+918957721120"
             className="flex items-center gap-1.5 text-white/90 hover:text-[#F5B301] transition-colors"
           >
             <Phone className="w-3.5 h-3.5 text-[#F5B301]" />
-            +91-8894412776
+            +91-8957721120
           </a>
         </div>
         <div className="flex flex-col items-center md:items-end md:text-right gap-0 text-center">
           <span className="font-bold tracking-wide text-white text-[13px] md:text-[15px]">
-            VINAYAK OVERSEAS SERVICES
+            NEW ADARSH MANPOWER CONSULTANT PRIVATE LIMITED
           </span>
           <span className="text-white/80 text-[10px] md:text-[11px] font-semibold tracking-wide">
-            RA License No: B-3393/HP/PER/100/5/11399/2026
+            B-3395/UP/COM/100/5/11401/2026
           </span>
         </div>
       </div>
@@ -65,18 +66,19 @@ export default function Navbar() {
 
           {/* Left: Logos */}
           <div className="flex items-center h-full py-4 gap-2 lg:gap-4">
-            <a href="/" className="flex flex-shrink-0 items-center justify-center border border-gray-200">
+            <Link href="/" className="flex flex-shrink-0 items-center justify-center border border-gray-200">
               <Image
                 src="/images/logo.jpeg"
-                alt="VCS"
+                alt="amc"
                 width={100}
                 height={44}
                 className="object-contain h-12 w-auto"
                 priority
               />
-            </a>
+            </Link>
             {/* <div className="w-[1px] h-8 sm:h-10 bg-gray-200 mx-1" /> */}
             <div className="flex items-center flex-shrink-0 gap-1 sm:gap-2">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/mea_logo.png"
                 alt="Ministry of External Affairs"

@@ -1,13 +1,13 @@
 "use client";
 
-import { ArrowRight, Briefcase, UserCheck, ShieldCheck, Globe, CheckCircle } from "lucide-react";
+import { ArrowRight, Briefcase, ShieldCheck, Globe, CheckCircle } from "lucide-react";
 import AnimatedHeading from "./AnimatedHeading";
 import AnimatedCounter from "./AnimatedCounter";
 
 const trustBadges = [
-    { icon: <ShieldCheck className="w-4 h-4" />, text: "MEA Registered" },
-    { icon: <CheckCircle className="w-4 h-4" />, text: "100% Legal Recruitment" },
-    { icon: <Globe className="w-4 h-4" />, text: "Global Placements" },
+    { icon: <ShieldCheck className="w-4 h-4" />, text: "MEA Registered Partner" },
+    { icon: <CheckCircle className="w-4 h-4" />, text: "100% Compliant & Ethical Hiring" },
+    { icon: <Globe className="w-4 h-4" />, text: "International Deployment" },
 ];
 
 
@@ -38,7 +38,7 @@ export default function Hero() {
                     <div className="inline-flex items-center gap-3 mb-6 animate-fade-in-up">
                         <span className="h-px w-10 bg-[#F5B301]" />
                         <span className="text-[#F5B301] text-xs font-bold tracking-[0.3em] uppercase">
-                            MEA Approved · Government of India Licensed
+                            Ministry of External Affairs Approved · Licensed Partner
                         </span>
                         <span className="h-px w-10 bg-[#F5B301]" />
                     </div>
@@ -46,7 +46,7 @@ export default function Hero() {
                     {/* Heading */}
                     <AnimatedHeading
                         element="h1"
-                        text="Expert Global [Manpower] & Overseas Hiring Solutions"
+                        text="Premier Global [Workforce] & Executive Recruitment Solutions"
                         className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-6"
                         highlightClass="text-[#F5B301]"
                     />

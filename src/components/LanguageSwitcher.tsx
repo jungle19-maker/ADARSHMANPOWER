@@ -5,6 +5,7 @@ import { Globe } from "lucide-react";
 
 declare global {
   interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     google: any;
     googleTranslateElementInit: () => void;
   }

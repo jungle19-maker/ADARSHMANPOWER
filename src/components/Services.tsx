@@ -4,44 +4,44 @@ import AnimatedHeading from "./AnimatedHeading";
 
 const services = [
     {
-        title: "Skilled Technical Workforce Solutions",
+        title: "Advanced Technical & Engineering Workforce",
         category: "Skilled Trades & Technical Staff",
-        desc: "We provide highly trained engineers, welders, electricians, HVAC technicians, and industrial fitters ready for global deployment. Our candidates are certified, experienced, and compliant with international safety standards.",
+        desc: "We deploy certified engineers, specialized technicians, and skilled tradesmen, rigorously vetted for technical proficiency and adherence to international safety protocols.",
         img: "/images/modern_indian_skilled_trades.png",
-        alt: "Skilled welders working at industrial site",
-        cta: "Hire Talent",
+        alt: "Professional engineers in safety gear reviewing blueprints at a modern industrial site",
+        cta: "Hire Technical Talent",
     },
     {
-        title: "International Healthcare Staffing Solutions",
+        title: "Global Healthcare & Medical Staffing",
         category: "Healthcare Professionals",
-        desc: "We recruit qualified nurses, doctors, lab technicians, and paramedics with complete licensing and documentation support for overseas placements.",
+        desc: "Connecting elite medical professionals—including licensed physicians, registered nurses, and allied health experts—with leading global healthcare institutions.",
         img: "/images/modern_indian_healthcare.png",
-        alt: "Nurses providing patient care in hospital",
-        cta: "Get Workforce",
+        alt: "Professional international healthcare staff in a modern hospital setting",
+        cta: "Secure Medical Experts",
     },
     {
-        title: "Hospitality & Retail Staffing Services",
+        title: "Premium Hospitality & Retail Staffing",
         category: "Hospitality & Retail",
-        desc: "From chefs and housekeeping staff to retail managers and customer service professionals, we deliver trained candidates for hotels, restaurants, and retail chains worldwide.",
+        desc: "Delivering trained candidates for world-class hotels, fine dining establishments, and luxury retail chains, ensuring exceptional customer experiences globally.",
         img: "/images/modern_indian_hospitality.png",
         alt: "Hospitality staff providing premium service",
-        cta: "Request Candidates",
+        cta: "Request Service Staff",
     },
     {
-        title: "IT & BPO Recruitment Services",
+        title: "Technology & Corporate Talent Acquisition",
         category: "IT & BPO Experts",
-        desc: "Hire skilled software developers, data analysts, customer support executives, and IT professionals for global business operations and outsourcing needs.",
+        desc: "Sourcing exceptional IT professionals, software engineers, and corporate executives to accelerate digital transformation and business operations worldwide.",
         img: "/images/modern_indian_it.png",
-        alt: "Modern IT and BPO professionals working in an office",
-        cta: "Hire Talent",
+        alt: "Corporate IT professionals working in a modern global office",
+        cta: "Hire Tech Talent",
     },
     {
-        title: "Oil, Gas & Construction Workforce",
-        category: "Oil & Gas & Construction",
-        desc: "We supply experienced rig workers, safety officers, engineers, and heavy equipment operators for large-scale infrastructure and energy projects.",
+        title: "Energy, Oil, Gas & Construction Workforce",
+        category: "Energy & Construction",
+        desc: "Supplying experienced industry specialists, engineers, and heavy equipment operators essential for large-scale international infrastructure and energy projects.",
         img: "/images/modern_indian_oil_gas.png",
         alt: "Engineers working on an international oil and gas rig",
-        cta: "Request Candidates",
+        cta: "Deploy Project Workforce",
     },
 ];
 
@@ -59,7 +59,7 @@ export default function Services() {
                 "serviceType": svc.category,
                 "provider": {
                     "@type": "Organization",
-                    "name": "VCS Website"
+                    "name": "New Adarsh Manpower Consultant"
                 }
             }
         }))
@@ -82,12 +82,12 @@ export default function Services() {
                         </span>
                         <span className="h-[2px] w-8 bg-[#F5B301] " />
                     </div>
-                    <AnimatedHeading 
-                        text="Global Manpower Services Across Key Industries"
+                    <AnimatedHeading
+                        text="Specialized Workforce Solutions Across Strategic Global Sectors"
                         className="text-4xl md:text-5xl font-extrabold text-[#23352b] leading-tight mb-6"
                     />
                     <p className="text-[#4B5563] text-lg max-w-3xl mx-auto leading-relaxed">
-                        We deliver skilled, certified, and job-ready professionals for international employers across high-demand sectors.
+                        We source, vet, and deploy world-class talent, empowering international enterprises with compliant, job-ready professionals equipped to drive business success.
                     </p>
                 </div>
 

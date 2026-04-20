@@ -32,9 +32,9 @@ export default function Contact() {
                             <div>
                                 <div className="font-bold text-[#0B1F3A] text-xl mb-3">Office Address</div>
                                 <div className="text-[#4B5563] leading-relaxed text-sm">
-                                    Shop No 5, Ground & First Floor,<br />
-                                    Old Hoshiarpur Road, Una,<br />
-                                    Himachal Pradesh — 174303
+                                    Ramnath Deoria Basement and Ground Floor Near Kali Mandir,<br />
+                                    Deoria Sadar R.S Deoria,<br />
+                                    Uttar Pradesh
                                 </div>
                             </div>
                         </div>
@@ -45,8 +45,8 @@ export default function Contact() {
                             </div>
                             <div>
                                 <div className="font-bold text-[#0B1F3A] text-xl mb-3">Phone Number</div>
-                                <a href="tel:+918894412776" className="text-[#4B5563] text-sm hover:text-[#F5B301] transition-colors">
-                                    +91-8894412776
+                                <a href="tel:+918957721120" className="text-[#4B5563] text-sm hover:text-[#F5B301] transition-colors">
+                                    +91-8957721120
                                 </a>
                             </div>
                         </div>
@@ -57,8 +57,8 @@ export default function Contact() {
                             </div>
                             <div>
                                 <div className="font-bold text-[#0B1F3A] text-xl mb-3">Email Address</div>
-                                <a href="mailto:vinayakoverseas90@gmail.com" className="text-[#4B5563] text-sm hover:text-[#F5B301] transition-colors break-all">
-                                    vinayakoverseas90@gmail.com
+                                <a href="mailto:newadarshmanpowerconsultant@gmail.com" className="text-[#4B5563] text-sm hover:text-[#F5B301] transition-colors break-all">
+                                    newadarshmanpowerconsultant@gmail.com
                                 </a>
                             </div>
                         </div>

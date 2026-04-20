@@ -4,7 +4,7 @@ import ServicesComponent from "@/components/Services";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: 'Our Services | VCS Website',
+  title: 'Our Services | New Adarsh Manpower Consultant',
   description: 'Explore our comprehensive overseas recruitment services, from candidate screening and visa processing to bulk hiring and deployment support.',
 };
 
@@ -16,14 +16,14 @@ export default function ServicesPage() {
         {/* Hero Banner for Services Page */}
         <section className="relative bg-white py-24 text-center border-b border-[#E5E7EB] overflow-hidden">
           {/* Modern Grid Background */}
-          <div 
-              className="absolute inset-0 z-0"
-              style={{
-                  backgroundImage: 'linear-gradient(to right, #e5e7eb 1px, transparent 1px), linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)',
-                  backgroundSize: '40px 40px',
-                  maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
-                  WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)'
-              }}
+          <div
+            className="absolute inset-0 z-0"
+            style={{
+              backgroundImage: 'linear-gradient(to right, #e5e7eb 1px, transparent 1px), linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)',
+              backgroundSize: '40px 40px',
+              maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
+              WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)'
+            }}
           />
           <div className="container mx-auto px-6 max-w-4xl relative z-10">
             <h1 className="text-4xl md:text-5xl font-extrabold text-[#24342b] mb-4">Our <span className="text-[#F5B301]">Services</span></h1>

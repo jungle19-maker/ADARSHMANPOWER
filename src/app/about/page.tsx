@@ -4,8 +4,8 @@ import AboutComponent from "@/components/About";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-    title: 'About Us | VCS Website',
-    description: 'Learn about VCS Website, our mission, vision, and our commitment to providing top-tier overseas manpower recruitment.',
+    title: 'About Us | New Adarsh Manpower Consultant',
+    description: 'Learn about New Adarsh Manpower Consultant, our mission, vision, and our commitment to providing top-tier overseas manpower recruitment.',
 };
 
 export default function AboutPage() {
@@ -16,7 +16,7 @@ export default function AboutPage() {
                 {/* Hero Banner for About Page */}
                 <section className="relative bg-white py-24 text-center border-b border-[#E5E7EB] overflow-hidden">
                     {/* Modern Grid Background */}
-                    <div 
+                    <div
                         className="absolute inset-0 z-0"
                         style={{
                             backgroundImage: 'linear-gradient(to right, #e5e7eb 1px, transparent 1px), linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)',
@@ -26,7 +26,7 @@ export default function AboutPage() {
                         }}
                     />
                     <div className="container mx-auto px-6 max-w-4xl relative z-10">
-                        <h1 className="text-4xl md:text-5xl font-extrabold text-[#24342b] mb-4">About <span className="text-[#F5B301]">VCS Website</span></h1>
+                        <h1 className="text-4xl md:text-5xl font-extrabold text-[#24342b] mb-4">About <span className="text-[#F5B301]">New Adarsh Manpower Consultant</span></h1>
                     </div>
                 </section>
 

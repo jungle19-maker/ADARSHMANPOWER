@@ -16,41 +16,41 @@ import AnimatedHeading from "./AnimatedHeading";
 const whyUsFeatures = [
     {
         icon: <Users className="w-6 h-6 text-[#F5B301]" />,
-        title: "Pan-India Talent Pool",
-        desc: "Access a vast network of candidates from metro cities like Mumbai, Delhi, Bangalore, as well as tier-2 and tier-3 regions, ensuring quality talent at competitive salary expectations.",
+        title: "Expansive Global Talent Network",
+        desc: "Leverage our vast, rigorously vetted network of professionals spanning major metropolitan hubs and strategic regional centers, guaranteeing premium talent acquisition.",
     },
     {
         icon: <ShieldCheck className="w-6 h-6 text-[#F5B301]" />,
-        title: "Stringent Screening Process",
-        desc: "Multi-level candidate evaluation including skill assessments, background verification, medical checks, and video interviews to ensure only qualified professionals are selected.",
+        title: "Uncompromising Screening Standards",
+        desc: "We employ a sophisticated multi-tier evaluation framework encompassing technical skills, comprehensive background checks, and psychological profiling to deliver only elite candidates.",
     },
     {
         icon: <FileCheck className="w-6 h-6 text-[#F5B301]" />,
-        title: "Visa & Compliance Expertise",
-        desc: "Dedicated in-house team handling passport processing, document attestation, visa approvals, and emigration clearance (ECR/ECNR).",
+        title: "Flawless Visa & Compliance Operations",
+        desc: "Our dedicated in-house compliance experts navigate complex international regulations, ensuring swift, error-free passport processing, attestation, and emigration clearance.",
     },
     {
         icon: <Clock className="w-6 h-6 text-[#F5B301]" />,
-        title: "Fast Turnaround Time",
-        desc: "Receive shortlisted candidates within 48–72 hours and complete deployment within 30–45 days.",
+        title: "Accelerated Deployment Timelines",
+        desc: "We recognize the critical nature of time in business. Expect meticulously shortlisted candidates within 72 hours and fully mobilized deployments within 45 days.",
     },
     {
         icon: <Headset className="w-6 h-6 text-[#F5B301]" />,
-        title: "Post-Deployment Support",
-        desc: "We provide onboarding assistance, grievance handling, and continuous follow-up during the probation period to ensure smooth workforce integration.",
+        title: "Comprehensive Post-Deployment Support",
+        desc: "Our commitment extends beyond placement. We provide robust onboarding assistance and continuous relationship management to ensure optimal workforce integration.",
     },
     {
         icon: <Award className="w-6 h-6 text-[#F5B301]" />,
-        title: "Certifications & Compliance",
-        desc: "Registered with the Ministry of External Affairs (India). License No: B-3393/HP/PER/100/5/11399/2026.",
+        title: "Government Licensed & Certified",
+        desc: "Operating with absolute transparency and legality, proudly registered with the Ministry of External Affairs, Government of India (License No: B-3395/UP/COM/100/5/11401/2026).",
     },
 ];
 
 const promiseItems = [
-    "100% Documented Recruitment",
-    "Zero Candidate Substitution",
-    "Transparent Pricing Structure",
-    "Long-Term After-Sales Support",
+    "100% Legally Compliant Recruitment",
+    "Guaranteed Candidate Quality",
+    "Transparent & Ethical Pricing",
+    "Long-Term Strategic Partnership",
 ];
 
 export default function WhyUs() {
@@ -68,12 +68,12 @@ export default function WhyUs() {
                             </span>
                             <span className="h-[2px] w-8 bg-[#F5B301] " />
                         </div>
-                        <AnimatedHeading 
-                            text="Why Partner With VCS Website?"
+                        <AnimatedHeading
+                            text="Why Partner With New Adarsh Manpower Consultant?"
                             className="text-4xl md:text-5xl font-extrabold text-[#23352b] mb-6 leading-tight"
                         />
                         <p className="text-[#4B5563] text-lg max-w-2xl mx-auto leading-relaxed">
-                            We deliver reliable, compliant, and efficient global manpower solutions tailored to your business needs.
+                            We engineer reliable, highly compliant, and seamlessly efficient global workforce solutions custom-tailored to accelerate your business objectives.
                         </p>
                     </div>
 
@@ -165,7 +165,7 @@ export default function WhyUs() {
                                 </span>
                             </div>
 
-                            <AnimatedHeading 
+                            <AnimatedHeading
                                 text="About Sanjeev Kumar\n[Visa & Immigration Consultant]"
                                 className="text-3xl lg:text-4xl font-bold text-[#23352b] leading-tight"
                             />
@@ -212,7 +212,7 @@ export default function WhyUs() {
                                     Vision
                                 </h3>
                                 <p className="text-white/80 leading-relaxed text-sm md:text-base pr-8 relative z-10">
-                                    Sanjeev aims to expand his services globally, helping individuals and organizations achieve seamless immigration and workforce mobility.
+                                    Sanjeev is dedicated to expanding his strategic services on a global scale, empowering professionals and leading multinational organizations to achieve seamless immigration and optimized workforce mobility.
                                 </p>
                             </div>
 

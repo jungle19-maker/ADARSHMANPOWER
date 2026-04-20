@@ -3,33 +3,33 @@ import AnimatedHeading from "./AnimatedHeading";
 const steps = [
   {
     num: "01",
-    title: "Requirement Analysis",
-    desc: "We conduct a thorough analysis of your workforce needs — skill sets, industry standards, volume, and timeline.",
+    title: "Strategic Requirement Analysis",
+    desc: "We perform a comprehensive evaluation of your workforce needs, analyzing required skill sets, industry standards, volume, and deployment timelines to craft a tailored recruitment strategy.",
   },
   {
     num: "02",
-    title: "Candidate Sourcing",
-    desc: "Tapping our database of 50,000+ pre-screened professionals and running targeted recruitment drives across India.",
+    title: "Targeted Global Sourcing",
+    desc: "Leveraging our expansive database of pre-screened professionals and executing highly targeted recruitment drives to identify top-tier talent across domestic and international markets.",
   },
   {
     num: "03",
-    title: "Screening & Interviews",
-    desc: "Multi-stage evaluation: written tests, trade tests, panel interviews, and medical fitness assessments.",
+    title: "Rigorous Screening & Assessment",
+    desc: "A meticulous multi-stage evaluation process including technical trade tests, comprehensive panel interviews, psychological assessments, and rigorous medical fitness verifications.",
   },
   {
     num: "04",
-    title: "Documentation",
-    desc: "Complete documentation handling — offer letters, contracts, attestation, emigration clearance, and compliance checks.",
+    title: "Compliance & Documentation",
+    desc: "Seamless execution of all legal requirements, including contract negotiation, offer letter issuance, document attestation, and strict adherence to international emigration protocols.",
   },
   {
     num: "05",
-    title: "Visa Processing",
-    desc: "End-to-end visa application, embassy coordination, work permit processing, and travel arrangements.",
+    title: "Expedited Visa Processing",
+    desc: "End-to-end management of visa applications, embassy liaising, and work permit processing, ensuring swift and legally compliant global workforce mobility.",
   },
   {
     num: "06",
-    title: "Deployment",
-    desc: "Pre-departure orientation, flight coordination, airport assistance, and smooth onboarding at the destination.",
+    title: "Seamless Deployment & Onboarding",
+    desc: "Comprehensive pre-departure orientation, travel coordination, and dedicated post-deployment support to guarantee smooth integration at the international destination.",
   },
 ];
 
@@ -48,12 +48,11 @@ export default function Process() {
             <span className="h-[2px] w-8 bg-[#F5B301] " />
           </div>
           <AnimatedHeading 
-            text="Our 6-Step Recruitment Process"
+            text="Our Executive 6-Step Recruitment Methodology"
             className="text-4xl md:text-5xl font-extrabold text-[#23352b] leading-tight mb-4"
           />
           <p className="text-[#4B5563] text-lg leading-relaxed">
-            A proven, structured timeline approach to deliver the right talent at the right time —
-            every single time.
+            A proven, precision-driven timeline designed to deploy exceptional talent efficiently and securely—empowering your global operations every single time.
           </p>
         </div>
 
@@ -108,10 +107,10 @@ export default function Process() {
         {/* Bottom CTA */}
         <div className="mt-20 text-center">
           <p className="text-[#4B5563] mb-6">
-            Ready to start your recruitment journey? Contact us today.
+            Ready to elevate your global workforce? Partner with us today.
           </p>
           <a href="#contact" className="btn-primary inline-flex uppercase">
-            Start Hiring Now
+            Initiate Hiring Process
             <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
             </svg>

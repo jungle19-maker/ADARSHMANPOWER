@@ -20,11 +20,11 @@ const BASE_URL = 'https://www.vinayakoverseasservices.com';
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'VCS Website | MEA Approved Global Manpower Recruitment',
-    template: '%s | VCS Website',
+    default: 'New Adarsh Manpower Consultant | MEA Approved Global Manpower Recruitment',
+    template: '%s | New Adarsh Manpower Consultant',
   },
   description:
-    'VCS Website is an MEA-approved, Government of India licensed overseas manpower recruitment agency. We connect skilled Indian professionals with trusted international employers across Gulf, Middle East, Asia & Europe.',
+    'New Adarsh Manpower Consultant is an MEA-approved, Government of India licensed overseas manpower recruitment agency. We connect skilled Indian professionals with trusted international employers across Gulf, Middle East, Asia & Europe.',
   keywords: [
     'overseas recruitment India',
     'manpower agency India',
@@ -32,15 +32,15 @@ export const metadata: Metadata = {
     'overseas jobs India',
     'gulf recruitment agency',
     'international manpower consultancy',
-    'VCS Website',
+    'New Adarsh Manpower Consultant',
     'overseas staffing India',
   ],
   openGraph: {
     type: 'website',
     locale: 'en_IN',
     url: BASE_URL,
-    siteName: 'VCS Website',
-    title: 'VCS Website | MEA Approved Global Manpower Recruitment',
+    siteName: 'New Adarsh Manpower Consultant',
+    title: 'New Adarsh Manpower Consultant | MEA Approved Global Manpower Recruitment',
     description:
       'Connecting skilled Indian talent with trusted international employers. MEA Registered | 100% Legal Recruitment | Global Placements.',
     images: [
@@ -48,13 +48,13 @@ export const metadata: Metadata = {
         url: '/images/hero_city_buildings.png',
         width: 1200,
         height: 630,
-        alt: 'VCS Website — Global Recruitment',
+        alt: 'New Adarsh Manpower Consultant — Global Recruitment',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'VCS Website | Global Manpower Recruitment',
+    title: 'New Adarsh Manpower Consultant | Global Manpower Recruitment',
     description:
       'MEA approved overseas recruitment agency. Connecting skilled Indian professionals with global employers.',
     images: ['/images/hero_city_buildings.png'],
@@ -73,29 +73,29 @@ export const metadata: Metadata = {
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'VCS Website',
-  alternateName: 'VCS',
+  name: 'New Adarsh Manpower Consultant',
+  alternateName: 'amc',
   url: BASE_URL,
   logo: `${BASE_URL}/images/logo.jpeg`,
   description:
     'MEA approved overseas manpower recruitment agency connecting skilled Indian professionals with international employers across Gulf, Middle East, Asia and Europe.',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Shop No 5, Ground & First Floor, Old Hoshiarpur Road',
-    addressLocality: 'Una',
-    addressRegion: 'Himachal Pradesh',
+    streetAddress: 'Ramnath Deoria Basement and Ground Floor Near Kali Mandir, Deoria Sadar R.S Deoria',
+    addressLocality: 'Deoria',
+    addressRegion: 'Uttar Pradesh',
     postalCode: '174303',
     addressCountry: 'IN',
   },
   contactPoint: [
     {
       '@type': 'ContactPoint',
-      telephone: '+91-8894412776',
+      telephone: '+91-8957721120',
       contactType: 'customer service',
       availableLanguage: ['Hindi', 'English'],
     },
   ],
-  email: 'vinayakoverseas90@gmail.com',
+  email: 'newadarshmanpowerconsultant@gmail.com',
   foundingDate: '2014',
   numberOfEmployees: '10-50',
   sameAs: [
