@@ -6,6 +6,9 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: 'Our Services | New Adarsh Manpower Consultant',
   description: 'Explore our comprehensive overseas recruitment services, from candidate screening and visa processing to bulk hiring and deployment support.',
+  alternates: {
+    canonical: '/services',
+  },
 };
 
 export default function ServicesPage() {

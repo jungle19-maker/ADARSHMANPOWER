@@ -74,17 +74,16 @@ export default function Services() {
             <div className="container mx-auto px-6 max-w-[90rem]">
 
                 {/* Header */}
-                <div className="text-center max-w-4xl mx-auto mb-20">
-                    <div className="flex items-center justify-center gap-3 mb-4">
-                        <span className="h-[2px] w-8 bg-[#F5B301] " />
-                        <span className="text-xs font-bold text-[#23352b]/60 tracking-[0.2em] uppercase">
+                <div className="text-center max-w-4xl mx-auto mb-20 flex flex-col items-center">
+                    <div className="inline-flex items-center justify-center gap-2 mb-6 px-4 py-1.5 bg-[#F5B301]/10 rounded-full border border-[#F5B301]/20">
+                        <span className="w-2 h-2 rounded-full bg-[#F5B301] animate-pulse" />
+                        <span className="text-xs font-bold text-[#d9a000] tracking-widest uppercase">
                             Our Expertise
                         </span>
-                        <span className="h-[2px] w-8 bg-[#F5B301] " />
                     </div>
                     <AnimatedHeading
                         text="Specialized Workforce Solutions Across Strategic Global Sectors"
-                        className="text-4xl md:text-5xl font-extrabold text-[#23352b] leading-tight mb-6"
+                        className="text-4xl md:text-5xl font-extrabold text-[#23352b] leading-tight mb-6 tracking-tight"
                     />
                     <p className="text-[#4B5563] text-lg max-w-3xl mx-auto leading-relaxed">
                         We source, vet, and deploy world-class talent, empowering international enterprises with compliant, job-ready professionals equipped to drive business success.
@@ -96,32 +95,32 @@ export default function Services() {
                     {services.map((svc, i) => (
                         <div
                             key={i}
-                            className="group relative h-[420px] md:h-[480px] overflow-hidden shadow-lg border border-[#E5E7EB] bg-[#0B1F3A] cursor-pointer flex flex-col justify-end transform transition-transform duration-500 hover:shadow-2xl hover:-translate-y-2 lg:last:col-span-1"
+                            className="group relative h-[420px] md:h-[480px] overflow-hidden rounded-3xl shadow-lg border border-white/10 bg-[#0B1F3A] cursor-pointer flex flex-col justify-end transform transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 lg:last:col-span-1"
                         >
                             {/* Background Image */}
                             <Image
                                 src={svc.img}
                                 alt={svc.alt}
                                 fill
-                                className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 opacity-90 group-hover:opacity-70"
+                                className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105 opacity-80 group-hover:opacity-50"
                             />
 
                             {/* Gradient Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A] via-[#0B1F3A]/70 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-90" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#061428] via-[#061428]/80 to-transparent z-10 transition-opacity duration-500" />
 
                             {/* Content */}
                             <div className="relative z-20 p-8 flex flex-col h-full justify-end">
-                                <span className="inline-block py-1 px-3 mb-4 bg-[#F5B301]/20 text-[#F5B301] border border-[#F5B301]/30 text-xs font-bold uppercase tracking-wider w-fit transform transition-transform duration-500 group-hover:-translate-y-2">
+                                <span className="inline-block py-1.5 px-4 mb-5 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-full text-[10px] font-bold uppercase tracking-widest w-fit transform transition-transform duration-500 group-hover:-translate-y-1">
                                     {svc.category}
                                 </span>
 
-                                <h3 className="text-2xl font-bold text-white mb-3 leading-snug group-hover:text-[#F5B301] transition-colors duration-300 transform group-hover:-translate-y-2">
+                                <h3 className="text-2xl font-bold text-white mb-3 leading-snug group-hover:text-[#F5B301] transition-colors duration-300">
                                     {svc.title}
                                 </h3>
 
-                                {/* Description - Fades in and slides up slightly on hover */}
+                                {/* Description */}
                                 <div className="h-0 overflow-hidden opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 ease-in-out">
-                                    <p className="text-white/80 text-sm leading-relaxed mb-6">
+                                    <p className="text-white/70 text-sm leading-relaxed mb-6 font-medium">
                                         {svc.desc}
                                     </p>
                                 </div>

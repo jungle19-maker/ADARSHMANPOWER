@@ -34,9 +34,9 @@ export default function FAQ() {
 
                     {/* LEFT */}
                     <div className="lg:sticky lg:top-28">
-                        <div className="flex items-center gap-3 mb-5">
-                            <span className="h-[2px] w-8 bg-[#F5B301] " />
-                            <span className="text-xs font-bold text-[#23352b]/50 tracking-[0.2em] uppercase">
+                        <div className="inline-flex items-center justify-center gap-2 mb-6 px-4 py-1.5 bg-[#F5B301]/10 rounded-full border border-[#F5B301]/20">
+                            <span className="w-2 h-2 rounded-full bg-[#F5B301] animate-pulse" />
+                            <span className="text-xs font-bold text-[#d9a000] tracking-widest uppercase">
                                 Usually Asked
                             </span>
                         </div>
@@ -77,9 +77,9 @@ export default function FAQ() {
                             return (
                                 <div
                                     key={idx}
-                                    className={` border transition-all duration-300 overflow-hidden ${isOpen
-                                        ? "border-[#F5B301] bg-white shadow-md"
-                                        : "border-[#E5E7EB] bg-white hover:border-[#23352b]/30"
+                                    className={` rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
+                                        ? "border-[#F5B301] bg-white shadow-lg"
+                                        : "border-[#E5E7EB] bg-white hover:border-[#F5B301]/50 hover:shadow-md"
                                         }`}
                                 >
                                     <button

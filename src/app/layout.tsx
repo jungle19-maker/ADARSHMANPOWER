@@ -1,17 +1,17 @@
 import type { Metadata } from 'next';
-import { Inter, Poppins } from 'next/font/google';
+import { Plus_Jakarta_Sans, Outfit } from 'next/font/google';
 
 import './globals.css';
 
-const inter = Inter({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-sans',
   display: 'swap',
 });
-const poppins = Poppins({
+const outfit = Outfit({
   weight: ['400', '500', '600', '700', '800', '900'],
   subsets: ['latin'],
-  variable: '--font-poppins',
+  variable: '--font-heading',
   display: 'swap',
 });
 
@@ -64,10 +64,6 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true },
   },
-  icons: {
-    icon: '/images/logo.jpeg',
-    apple: '/images/logo.jpeg',
-  },
 };
 
 const organizationSchema = {
@@ -115,7 +111,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body
         suppressHydrationWarning
-        className={`${inter.variable} ${poppins.variable} font-sans antialiased bg-[#24342b] text-slate-800`}
+        className={`${plusJakarta.variable} ${outfit.variable} font-sans antialiased bg-[#F8FAFC] text-slate-800`}
       >
         {children}
       </body>

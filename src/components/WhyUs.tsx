@@ -60,17 +60,16 @@ export default function WhyUs() {
             <section id="whyus" className="py-24 bg-[#ecececfc]">
                 <div className="container mx-auto px-6 max-w-[85rem]">
 
-                    <div className="text-center max-w-3xl mx-auto mb-16">
-                        <div className="flex items-center justify-center gap-3 mb-4">
-                            <span className="h-[2px] w-8 bg-[#F5B301] " />
-                            <span className="text-xs font-bold text-[#23352b]/60 tracking-[0.2em] uppercase">
+                    <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
+                        <div className="inline-flex items-center justify-center gap-2 mb-6 px-4 py-1.5 bg-[#F5B301]/10 rounded-full border border-[#F5B301]/20">
+                            <span className="w-2 h-2 rounded-full bg-[#F5B301] animate-pulse" />
+                            <span className="text-xs font-bold text-[#d9a000] tracking-widest uppercase">
                                 Why Choose Us
                             </span>
-                            <span className="h-[2px] w-8 bg-[#F5B301] " />
                         </div>
                         <AnimatedHeading
                             text="Why Partner With New Adarsh Manpower Consultant?"
-                            className="text-4xl md:text-5xl font-extrabold text-[#23352b] mb-6 leading-tight"
+                            className="text-4xl md:text-5xl font-extrabold text-[#23352b] mb-6 leading-tight tracking-tight"
                         />
                         <p className="text-[#4B5563] text-lg max-w-2xl mx-auto leading-relaxed">
                             We engineer reliable, highly compliant, and seamlessly efficient global workforce solutions custom-tailored to accelerate your business objectives.
@@ -84,12 +83,12 @@ export default function WhyUs() {
                             {whyUsFeatures.map((feat, idx) => (
                                 <div
                                     key={idx}
-                                    className="bg-white p-8 shadow-sm border border-[#E5E7EB] hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                                    className="bg-white p-8 rounded-3xl shadow-sm border border-[#E5E7EB] hover:shadow-2xl hover:border-[#F5B301]/50 hover:-translate-y-2 transition-all duration-300 group"
                                 >
-                                    <div className="w-12 h-12 bg-[#23352b] flex items-center justify-center mb-6">
+                                    <div className="w-12 h-12 bg-[#F8FAFC] rounded-2xl flex items-center justify-center mb-6 border border-[#E5E7EB] group-hover:bg-[#F5B301]/10 group-hover:border-[#F5B301]/30 transition-colors">
                                         {feat.icon}
                                     </div>
-                                    <h3 className="text-xl font-bold text-[#23352b] mb-3">
+                                    <h3 className="text-xl font-bold text-[#23352b] mb-3 group-hover:text-[#d9a000] transition-colors">
                                         {feat.title}
                                     </h3>
                                     <p className="text-[#4B5563] text-sm leading-relaxed">

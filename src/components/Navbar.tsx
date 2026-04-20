@@ -78,10 +78,11 @@ export default function Navbar() {
             </Link>
             {/* <div className="w-[1px] h-8 sm:h-10 bg-gray-200 mx-1" /> */}
             <div className="flex items-center flex-shrink-0 gap-1 sm:gap-2">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/images/mea_logo.png"
                 alt="Ministry of External Affairs"
+                width={40}
+                height={40}
                 className="object-contain h-8 sm:h-10 w-auto flex-shrink-0"
               />
               <div className="flex flex-col">

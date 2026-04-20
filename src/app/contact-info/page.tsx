@@ -6,6 +6,9 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: 'Contact Us | New Adarsh Manpower Consultant',
   description: 'Get in touch with New Adarsh Manpower Consultant. We are ready to assist you with your international manpower recruitment and job placement needs.',
+  alternates: {
+    canonical: '/contact-info',
+  },
 };
 
 export default function ContactInfoPage() {

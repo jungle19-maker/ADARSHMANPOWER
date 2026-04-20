@@ -6,6 +6,9 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: 'Our Process | New Adarsh Manpower Consultant',
   description: 'Understand our 6-step global recruitment process that ensures right talent matching from requirement analysis to final deployment.',
+  alternates: {
+    canonical: '/process',
+  },
 };
 
 export default function ProcessPage() {

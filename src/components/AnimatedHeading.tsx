@@ -1,14 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { Oswald } from "next/font/google";
 import React from "react";
-
-const oswald = Oswald({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
 
 interface AnimatedHeadingProps {
   /** The text to animate. Supports \n for newlines and [word] for highlighting */
@@ -74,7 +67,7 @@ export default function AnimatedHeading({
   };
 
   return (
-    <Element className={`${oswald.className} ${className}`}>
+    <Element className={className}>
       <motion.span
         variants={container}
         initial="hidden"

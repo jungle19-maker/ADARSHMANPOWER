@@ -39,17 +39,16 @@ export default function Process() {
       <div className="container mx-auto px-6 max-w-6xl">
 
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="h-[2px] w-8 bg-[#F5B301] " />
-            <span className="text-xs font-bold text-[#23352b]/50 uppercase tracking-[0.22em]">
+        <div className="text-center max-w-3xl mx-auto mb-20 flex flex-col items-center">
+          <div className="inline-flex items-center justify-center gap-2 mb-6 px-4 py-1.5 bg-[#F5B301]/10 rounded-full border border-[#F5B301]/20">
+            <span className="w-2 h-2 rounded-full bg-[#F5B301] animate-pulse" />
+            <span className="text-xs font-bold text-[#d9a000] tracking-widest uppercase">
               How It Works
             </span>
-            <span className="h-[2px] w-8 bg-[#F5B301] " />
           </div>
           <AnimatedHeading 
             text="Our Executive 6-Step Recruitment Methodology"
-            className="text-4xl md:text-5xl font-extrabold text-[#23352b] leading-tight mb-4"
+            className="text-4xl md:text-5xl font-extrabold text-[#23352b] leading-tight mb-4 tracking-tight"
           />
           <p className="text-[#4B5563] text-lg leading-relaxed">
             A proven, precision-driven timeline designed to deploy exceptional talent efficiently and securely—empowering your global operations every single time.
@@ -60,14 +59,11 @@ export default function Process() {
         <div className="relative w-full py-4">
 
           {/* Center Vertical Line */}
-          <div className="absolute left-[28px] md:left-1/2 top-0 bottom-0 w-[2px] bg-[#23352b] md:-translate-x-[1px]" />
+          <div className="absolute left-[28px] md:left-1/2 top-0 bottom-0 w-[2px] bg-[#E5E7EB] md:-translate-x-[1px]" />
 
           <div className="flex flex-col gap-12 md:gap-16">
             {steps.map((step, idx) => {
               const isEven = idx % 2 === 0;
-              // On desktop:
-              // isEven (0, 2, 4) -> Card appears on the Left side, text aligned Right
-              // odd (1, 3, 5)    -> Card appears on the Right side, text aligned Left
               const boxMargin = isEven ? "md:mr-auto" : "md:ml-auto";
               const textAlign = isEven ? "md:text-right" : "md:text-left";
 
@@ -75,16 +71,16 @@ export default function Process() {
                 <div key={idx} className="relative w-full">
 
                   {/* Floating Number Box (Timeline Marker) */}
-                  <div className="absolute left-[28px] md:left-1/2 top-4 md:top-1/2 transform -translate-x-1/2 md:-translate-y-1/2 z-10 w-12 h-12 bg-[#0B1F3A] border-2 border-[#F5B301] flex items-center justify-center shadow-lg transition-transform hover:scale-110 duration-300">
-                    <span className="text-[#F5B301] font-black text-lg">{step.num}</span>
+                  <div className="absolute left-[28px] md:left-1/2 top-4 md:top-1/2 transform -translate-x-1/2 md:-translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full border border-[#E5E7EB] shadow-sm flex items-center justify-center transition-transform hover:scale-110 hover:border-[#F5B301] duration-300">
+                    <span className="text-[#23352b] font-bold text-lg">{step.num}</span>
                   </div>
 
                   {/* Content Container */}
                   <div className={`w-full md:w-[45%] pl-20 md:pl-0 ${boxMargin}`}>
-                    <div className="bg-white border border-[#E5E7EB] p-8 hover:bg-[#0B1F3A] group transition-all duration-400 shadow-sm hover:shadow-2xl hover:-translate-y-1">
+                    <div className="bg-white rounded-3xl border border-[#E5E7EB] p-8 hover:bg-[#0B1F3A] group transition-all duration-500 shadow-sm hover:shadow-2xl hover:border-[#F5B301]/50 hover:-translate-y-2">
 
                       {/* Step Number Backdrop (Visible on Hover) */}
-                      <div className="text-6xl font-extrabold text-[#23352b] group-hover:text-white/5 absolute top-2 right-4 leading-none select-none transition-colors duration-300 pointer-events-none">
+                      <div className="text-6xl font-extrabold text-[#23352b]/5 group-hover:text-white/5 absolute top-2 right-4 leading-none select-none transition-colors duration-300 pointer-events-none">
                         {step.num}
                       </div>
 

@@ -56,9 +56,9 @@ export default function About({ showCertificate = true }: { showCertificate?: bo
 
           {/* Right: Content */}
           <div className="lg:w-1/2 space-y-8 pt-6 lg:pt-0">
-            <div className="flex items-center gap-3">
-              <span className="h-[2px] w-8 bg-[#F5B301] " />
-              <span className="text-xs font-bold text-[#24342b]/50 uppercase tracking-wider">
+            <div className="inline-flex items-center justify-center gap-2 mb-6 px-4 py-1.5 bg-[#F5B301]/10 rounded-full border border-[#F5B301]/20">
+              <span className="w-2 h-2 rounded-full bg-[#F5B301] animate-pulse" />
+              <span className="text-xs font-bold text-[#d9a000] tracking-widest uppercase">
                 About Us
               </span>
             </div>
@@ -100,9 +100,9 @@ export default function About({ showCertificate = true }: { showCertificate?: bo
           <div className="mt-24 border-t border-[#E5E7EB] pt-16">
             <div className="flex flex-col md:flex-row items-center gap-12">
               <div className="md:w-1/3">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="h-[2px] w-8 bg-[#F5B301] " />
-                  <span className="text-xs font-bold text-[#24342b]/50 uppercase tracking-wider">
+                <div className="inline-flex items-center justify-center gap-2 mb-6 px-4 py-1.5 bg-[#F5B301]/10 rounded-full border border-[#F5B301]/20">
+                  <span className="w-2 h-2 rounded-full bg-[#F5B301] animate-pulse" />
+                  <span className="text-xs font-bold text-[#d9a000] tracking-widest uppercase">
                     Govt. Approved
                   </span>
                 </div>
@@ -120,7 +120,7 @@ export default function About({ showCertificate = true }: { showCertificate?: bo
               <div className="md:w-2/3">
                 <div className=" overflow-hidden border border-[#E5E7EB] shadow-xl relative w-full h-[400px] md:h-[500px]">
                   <Image
-                    src="/images/certificate.png"
+                    src="/images/license_certificate.png"
                     alt="MEA License Certificate"
                     fill
                     className="object-contain bg-white hover:scale-105 transition-transform duration-500"

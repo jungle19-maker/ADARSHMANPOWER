@@ -6,6 +6,9 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: 'Why Choose Us | New Adarsh Manpower Consultant',
   description: 'Discover why New Adarsh Manpower Consultant is your trusted MEA-approved global manpower recruitment partner.',
+  alternates: {
+    canonical: '/why-choose-us',
+  },
 };
 
 export default function WhyChooseUsPage() {

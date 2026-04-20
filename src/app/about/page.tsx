@@ -6,6 +6,9 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
     title: 'About Us | New Adarsh Manpower Consultant',
     description: 'Learn about New Adarsh Manpower Consultant, our mission, vision, and our commitment to providing top-tier overseas manpower recruitment.',
+    alternates: {
+        canonical: '/about',
+    },
 };
 
 export default function AboutPage() {
